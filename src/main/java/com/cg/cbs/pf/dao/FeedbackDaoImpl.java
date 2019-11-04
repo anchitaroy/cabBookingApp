@@ -22,9 +22,11 @@ public class FeedbackDaoImpl implements FeedbackDao {
 		int fBookingId = tripDetails.getBookingId();
 		int fCustomerId = tripDetails.getCustomerId();
 		int fDriverId = tripDetails.getDriverId();
+		String fIssues = tripDetails.getIssues();
 		report.setBookingId(fBookingId);
 		report.setCustomerId(fCustomerId);
 		report.setDriverId(fDriverId);
+		report.setIssues(fIssues);
 		mgr.merge(report);
 		return report;
 	}

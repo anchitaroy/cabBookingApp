@@ -20,7 +20,7 @@ public class Report {
 	@Column
 	private int customerId;
 	@Column(length = 25)
-	private String issue;
+	private String issues;
 	
 	public int getBookingId() {
 		return bookingId;
@@ -34,11 +34,11 @@ public class Report {
 	public void setDriverId(int driverId) {
 		this.driverId = driverId;
 	}
-	public String getIssue() {
-		return issue;
+	public String getIssues() {
+		return issues;
 	}
-	public void setIssue(String issue) {
-		this.issue = issue;
+	public void setIssues(String issues) {
+		this.issues = issues;
 	}
 	public int getCustomerId() {
 		return customerId;
