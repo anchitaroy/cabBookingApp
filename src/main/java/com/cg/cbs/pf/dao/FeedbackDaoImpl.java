@@ -5,7 +5,6 @@ import javax.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.cg.cbs.pf.dto.Booking;
 import com.cg.cbs.pf.dto.Report;
 import com.cg.cbs.pf.dto.TripDetails;
 
@@ -27,7 +26,7 @@ public class FeedbackDaoImpl implements FeedbackDao {
 		report.setCustomerId(fCustomerId);
 		report.setDriverId(fDriverId);
 		report.setIssues(fIssues);
-		mgr.merge(report);
+		mgr.persist(report);
 		return report;
 	}
 }

@@ -7,7 +7,6 @@ import javax.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.cg.cbs.pf.dto.Booking;
 import com.cg.cbs.pf.dto.Customer;
 import com.cg.cbs.pf.dto.Payment;
 import com.cg.cbs.pf.dto.TripDetails;

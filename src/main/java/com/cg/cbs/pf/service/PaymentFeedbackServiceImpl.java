@@ -9,8 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.cg.cbs.pf.dao.CustomerWalletDao;
 import com.cg.cbs.pf.dao.FeedbackDao;
 import com.cg.cbs.pf.dao.PaymentDao;
-import com.cg.cbs.pf.dao.TripRatingDao;
-import com.cg.cbs.pf.dto.Booking;
 import com.cg.cbs.pf.dto.Customer;
 import com.cg.cbs.pf.dto.Payment;
 import com.cg.cbs.pf.dto.Report;
@@ -26,19 +24,14 @@ public class PaymentFeedbackServiceImpl implements PaymentFeedbackService {
 	@Autowired
 	private FeedbackDao fdao;
 	@Autowired
-	private TripRatingDao tdao;
-	@Autowired
 	private CustomerWalletDao cdao;
 	
 	@Override
 	public Payment addPayment(TripDetails tripDetails) {
-		updateCustomer(tripDetails);
+		double wallet = tripDetails.getWallet();
+		double finalFare = tripDetails.getFinalFare();
+		updateCustomer(wallet, finalFare);
 		return pdao.add(tripDetails);
-	}
-
-	@Override
-	public Booking updateBooking(Booking booking) {
-		return tdao.updateTripRating(booking);
 	}
 	
 	@Override
@@ -47,8 +40,8 @@ public class PaymentFeedbackServiceImpl implements PaymentFeedbackService {
 	}
 
 	@Override
-	public Customer updateCustomer(TripDetails tripDetails) {
-		return cdao.updateCustWallet(tripDetails);
+	public Customer updateCustomer(double wallet, double finalFare) {
+		return cdao.updateCustWallet(wallet, finalFare);
 	}
 
 }
